@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Food Analysis | Cuisine Demand &amp; Order Trends</title>
+  <meta name="description" content="Interactive Tableau analysis of cuisine demand and order trends for food delivery.">
+  <meta name="keywords" content="Tableau, food analysis, cuisine demand, order trends, dashboard">
+
+  <!-- Browser-safe local styling -->
+  <link rel="stylesheet" href="../static/css/style.css">
+
+  <!-- =======================================================
+  * Template Name: LeadPage
+  * Template URL: https://bootstrapmade.com/leadpage-bootstrap-landing-page-template/
+  * Updated: Aug 12 2025 with Bootstrap v5.3.7
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body class="index-page">
+
+  <header id="header" class="header fixed-top">
+    <div class="container-fluid container-xl position-relative">
+
+      <div class="top-row d-flex align-items-center justify-content-between">
+        <a href="index.html" class="logo d-flex align-items-center">
+          <!-- Uncomment the line below if you also wish to use an image logo -->
+          <!-- <img src="assets/img/logo.webp" alt=""> -->
+          <h1 class="sitename">FoodAnalysis</h1>
+        </a>
+
+        <div class="d-flex align-items-center">
+          <div class="social-links">
+            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="nav-wrap">
+      <div class="container d-flex justify-content-center position-relative">
+        <nav id="navmenu" class="navmenu">
+          <ul>
+            <li><a href="#hero" class="active">Home</a></li>
+            <li><a href="#about">Overview</a></li>
+            <li><a href="#dashboard">Dashboard</a></li>
+            <li><a href="#insights">Insights</a></li>
+            <li><a href="#conclusion">Conclusion</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+      </div>
+    </div>
+
+  </header>
+
+  <main class="main">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section dark-background">
+      <div class="video-background">
+        <video autoplay="" muted="" loop="" playsinline="">
+          <source src="assets/img/video/video-2.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay"></div>
+      </div>
+      <div class="hero-content">
+        <div class="container position-relative">
+          <div class="row justify-content-center text-center">
+            <div class="col-lg-8">
+              <h1 data-aos="fade-up" data-aos-delay="100">Cuisine Demand &amp; Order Trends</h1>
+              <p data-aos="fade-up" data-aos-delay="200">What do customers order, when do they order it, and which cuisines drive the most demand? Explore the full food analysis through an interactive Tableau dashboard.</p>
+              <div class="hero-buttons" data-aos="fade-up" data-aos-delay="300">
+                <a href="#dashboard" class="btn btn-primary">Explore Dashboard</a>
+                <a href="#about" class="btn btn-outline">Read the Story</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Overview / Story -->
+    <section id="about" class="about section">
+      <div class="container section-title" data-aos="fade-up">
+        <span class="subtitle">Overview</span>
+        <h2>The Story Behind the Data</h2>
+        <p>A capstone project analysing food orders to understand which cuisines customers prefer and how demand changes over time.</p>
+      </div>
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="story-card">
+              <i class="bi bi-question-circle"></i>
+              <h4>The Question</h4>
+              <p>Which cuisines are in highest demand, and how do order volumes and revenue shift across time, location and customer segments?</p>
+            </div>
+          </div>
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="story-card">
+              <i class="bi bi-database"></i>
+              <h4>The Data</h4>
+              <p>Order-level food delivery data covering cuisines, order dates, order values and customer details, prepared and modelled in Tableau.</p>
+            </div>
+          </div>
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="story-card">
+              <i class="bi bi-bar-chart-line"></i>
+              <h4>The Approach</h4>
+              <p>Interactive dashboards with filters let you slice the data yourself and discover patterns instead of reading static charts.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dashboard Section -->
+    <section id="dashboard" class="dashboard-section section light-background">
+      <div class="container section-title" data-aos="fade-up">
+        <span class="subtitle">Interactive</span>
+        <h2>Tableau Dashboard</h2>
+        <p>Use the filter panel or click directly on the charts. Everything updates together.</p>
+      </div>
+
+      <div class="container-fluid container-xl">
+
+        <!-- Visual switcher: add more views in assets/js/dashboard.js -->
+        <ul class="nav nav-pills justify-content-center mb-4" id="vizTabs" role="tablist"></ul>
+
+        <div class="row g-4">
+          <!-- Filter panel -->
+          <aside class="col-lg-3">
+            <div class="filter-panel" data-aos="fade-right">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <h5 class="mb-0"><i class="bi bi-funnel"></i> Filters</h5>
+                <button type="button" id="resetFilters" class="btn btn-sm btn-outline-secondary">Reset</button>
+              </div>
+              <div id="filterControls">
+                <p class="text-muted small mb-0" id="filterStatus">Loading dashboard filters&hellip;</p>
+              </div>
+              <hr>
+              <div class="d-grid gap-2">
+                <button type="button" id="btnImage" class="btn btn-sm btn-outline-secondary"><i class="bi bi-image"></i> Download image</button>
+                <button type="button" id="btnPdf" class="btn btn-sm btn-outline-secondary"><i class="bi bi-file-earmark-pdf"></i> Export PDF</button>
+                <button type="button" id="btnFull" class="btn btn-sm btn-outline-secondary"><i class="bi bi-arrows-fullscreen"></i> Full screen</button>
+              </div>
+            </div>
+          </aside>
+
+          <!-- Viz -->
+          <div class="col-lg-9">
+            <div class="viz-wrapper" id="vizWrapper" data-aos="fade-left">
+              <div class="viz-loading" id="vizLoading"><div class="spinner-border text-warning" role="status"></div><span>Loading dashboard&hellip;</span></div>
+              <div id="vizContainer"></div>
+            </div>
+            <p class="small text-muted mt-2 mb-0">If the dashboard does not load, <a id="vizFallback" href="#" target="_blank" rel="noopener">open it on Tableau Public</a>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Insights -->
+    <section id="insights" class="insights section">
+      <div class="container section-title" data-aos="fade-up">
+        <span class="subtitle">Insights</span>
+        <h2>Key Takeaways</h2>
+        <p>Replace the placeholder text below with the findings from your own analysis.</p>
+      </div>
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+            <div class="insight-card"><span class="num">01</span><h4>Top Cuisines</h4><p>Describe which cuisines lead in order volume and what share of total orders they represent.</p></div>
+          </div>
+          <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+            <div class="insight-card"><span class="num">02</span><h4>Demand Over Time</h4><p>Summarise monthly or weekly trends, peaks, dips and any seasonality you spotted.</p></div>
+          </div>
+          <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+            <div class="insight-card"><span class="num">03</span><h4>Value &amp; Revenue</h4><p>Explain how average order value and revenue differ between cuisines.</p></div>
+          </div>
+          <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+            <div class="insight-card"><span class="num">04</span><h4>Recommendations</h4><p>Suggest actions such as menu focus, promotions or stock planning based on the data.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Conclusion / CTA -->
+    <section id="conclusion" class="call-to-action section">
+      <div class="container" data-aos="zoom-out">
+        <div class="row g-5">
+          <div class="col-lg-12 content d-flex flex-column justify-content-center text-center">
+            <h3>Data-driven decisions for <em>better menus</em></h3>
+            <p>Understanding cuisine demand helps restaurants and delivery platforms plan inventory, target promotions and grow revenue. Dive back into the dashboard and test your own hypotheses.</p>
+            <a class="cta-btn align-self-center" href="#dashboard">Back to Dashboard</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact section">
+      <div class="container section-title" data-aos="fade-up">
+        <span class="subtitle">Contact</span>
+        <h2>Get in Touch</h2>
+        <p>Built by Akshay Chaudhari as part of a Tableau capstone project.</p>
+      </div>
+      <div class="container text-center" data-aos="fade-up">
+        <a class="btn btn-primary me-2" href="https://public.tableau.com/app/profile/akshay.chaudhari4425" target="_blank" rel="noopener">Tableau Public Profile</a>
+        <a class="btn btn-outline-secondary" href="mailto:contact@example.com">Email Me</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="footer" class="footer dark-background">
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <div class="copyright">
+              <p>© <span>Copyright</span> <strong class="px-1 sitename">FoodAnalysis</strong> <span>Tableau Capstone Project</span></p>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="credits">
+              Template by <a href="https://bootstrapmade.com/">BootstrapMade</a> | Data visualisation by <a href="https://public.tableau.com/app/profile/akshay.chaudhari4425" target="_blank" rel="noopener">Akshay Chaudhari</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+  <script type="module" src="https://public.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+
+</body>
+
+</html>
