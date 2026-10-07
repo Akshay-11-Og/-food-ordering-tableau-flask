@@ -583,9 +583,11 @@ main {
     color: #fff;
 }
 
+.viz-wrapper,
 .viz-wrap {
     position: relative;
     min-width: 0;
+    width: 100%;
     background: #fff;
 }
 

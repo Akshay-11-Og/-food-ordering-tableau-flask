@@ -66,9 +66,6 @@
     <!-- Hero Section -->
     <section id="hero" class="hero section dark-background">
       <div class="video-background">
-        <video autoplay="" muted="" loop="" playsinline="">
-          <source src="assets/img/video/video-2.mp4" type="video/mp4">
-        </video>
         <div class="video-overlay"></div>
       </div>
       <div class="hero-content">
@@ -126,43 +123,20 @@
       <div class="container section-title" data-aos="fade-up">
         <span class="subtitle">Interactive</span>
         <h2>Tableau Dashboard</h2>
-        <p>Use the filter panel or click directly on the charts. Everything updates together.</p>
+        <p>Use the dashboard filters or click directly on the charts to explore the data.</p>
       </div>
 
       <div class="container-fluid container-xl">
-
-        <!-- Visual switcher: add more views in assets/js/dashboard.js -->
-        <ul class="nav nav-pills justify-content-center mb-4" id="vizTabs" role="tablist"></ul>
-
-        <div class="row g-4">
-          <!-- Filter panel -->
-          <aside class="col-lg-3">
-            <div class="filter-panel" data-aos="fade-right">
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                <h5 class="mb-0"><i class="bi bi-funnel"></i> Filters</h5>
-                <button type="button" id="resetFilters" class="btn btn-sm btn-outline-secondary">Reset</button>
-              </div>
-              <div id="filterControls">
-                <p class="text-muted small mb-0" id="filterStatus">Loading dashboard filters&hellip;</p>
-              </div>
-              <hr>
-              <div class="d-grid gap-2">
-                <button type="button" id="btnImage" class="btn btn-sm btn-outline-secondary"><i class="bi bi-image"></i> Download image</button>
-                <button type="button" id="btnPdf" class="btn btn-sm btn-outline-secondary"><i class="bi bi-file-earmark-pdf"></i> Export PDF</button>
-                <button type="button" id="btnFull" class="btn btn-sm btn-outline-secondary"><i class="bi bi-arrows-fullscreen"></i> Full screen</button>
-              </div>
-            </div>
-          </aside>
-
-          <!-- Viz -->
-          <div class="col-lg-9">
-            <div class="viz-wrapper" id="vizWrapper" data-aos="fade-left">
-              <div class="viz-loading" id="vizLoading"><div class="spinner-border text-warning" role="status"></div><span>Loading dashboard&hellip;</span></div>
-              <div id="vizContainer"></div>
-            </div>
-            <p class="small text-muted mt-2 mb-0">If the dashboard does not load, <a id="vizFallback" href="#" target="_blank" rel="noopener">open it on Tableau Public</a>.</p>
-          </div>
+        <div class="viz-wrapper" id="vizWrapper" data-aos="fade-left">
+          <tableau-viz
+            id="foodDashboard"
+            src="https://public.tableau.com/views/foodanalysis_17911813919100/CuisineDemandOrderTrendsAnalysisDashboard?:showVizHome=no"
+            toolbar="bottom"
+            hide-tabs
+            aria-label="Cuisine Demand and Order Trends Analysis Dashboard">
+          </tableau-viz>
         </div>
+        <p class="small text-muted mt-2 mb-0">If the dashboard does not load, <a id="vizFallback" href="https://public.tableau.com/views/foodanalysis_17911813919100/CuisineDemandOrderTrendsAnalysisDashboard?:showVizHome=no" target="_blank" rel="noopener">open it on Tableau Public</a>.</p>
       </div>
     </section>
 
@@ -244,20 +218,7 @@
   <!-- Preloader -->
   <div id="preloader"></div>
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-
-  <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
   <script type="module" src="https://public.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js"></script>
-  <script src="assets/js/dashboard.js"></script>
 
 </body>
 
